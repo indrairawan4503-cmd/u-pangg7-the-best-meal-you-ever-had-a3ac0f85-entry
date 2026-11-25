@@ -17,6 +17,8 @@ SENTENCE = (
 
 
 def main() -> None:
+    if not SENTENCE.strip() or "\n" in SENTENCE or not 1 <= len(SENTENCE) <= 200:
+        raise SystemExit("entry gate failed: sentence must be non-blank, single line, 1-200 chars")
     data = SENTENCE.encode("utf-8")
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "wb") as f:
